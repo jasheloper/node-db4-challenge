@@ -1,10 +1,10 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('steps').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('steps').insert([
         {
           step_number: '1',
           instructions: 'Cook spaghetti noodles according to package directions.',
