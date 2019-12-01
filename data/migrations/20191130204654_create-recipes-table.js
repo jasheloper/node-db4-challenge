@@ -28,8 +28,7 @@ exports.up = function(knex) {
           .unsigned()
           .notNullable()
           .references("recipes.id")
-          .onDelete("CASCADE")
-          .onUpdate("CASCADE");
+
       })
       // * * R E C I P E + I N G R E D I E N T S  TABLE
       .createTable("recipe_ingredients", tbl => {
@@ -39,17 +38,15 @@ exports.up = function(knex) {
           .integer("recipe_id")
           .unsigned()
           .notNullable()
-          .onDelete("CASCADE")
-          .onUpdate("CASCADE");
-          tbl.foreign('recipe_id').references('recipes.id')
+
+        tbl.foreign("recipe_id").references("recipes.id");
         // FOREIGN KEY REFERENCE TO THE INGREDIENTS TABLE - INGREDIENT ID
         tbl
           .integer("ingredient_id")
           .unsigned()
           .notNullable()
-          .onDelete("CASCADE")
-          .onUpdate("CASCADE");
-          tbl.foreign('ingredient_id').references('ingredients.id')
+
+        tbl.foreign("ingredient_id").references("ingredients.id");
 
         tbl
           .integer("ingredient_quantity", 255)

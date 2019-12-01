@@ -6,19 +6,19 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('recipe_ingredients').insert([
         {
-          recipes_id: 1,
+          recipe_id: 1,
           ingredient_id: 1,
           ingredient_quantity: 12,
           quantity_type: "OZ"
         },
         {
-          recipes_id: 1,
+          recipe_id: 1,
           ingredient_id: 2,
           ingredient_quantity: 1,
           quantity_type: "POUND"
         },
         {
-          recipes_id: 1,
+          recipe_id: 1,
           ingredient_id: 3,
           ingredient_quantity: 1,
           quantity_type: "CAN"
