@@ -20,15 +20,16 @@ exports.up = function(knex) {
         tbl
           .integer("step_number")
           .unsigned()
-          .notNullable();
+          .notNullable()
+          .onUpdate("CASCASE")
+          .onDelete("CASCADE");
         tbl.string("instructions").notNullable();
         // FOREIGN KEY REFERENCE TO THE RECIPES TABLE - RECIPE ID
         tbl
           .integer("recipe_id")
           .unsigned()
           .notNullable()
-          .references("recipes.id")
-
+          .references("recipes.id");
       })
       // * * R E C I P E + I N G R E D I E N T S  TABLE
       .createTable("recipe_ingredients", tbl => {
@@ -38,14 +39,16 @@ exports.up = function(knex) {
           .integer("recipe_id")
           .unsigned()
           .notNullable()
-
+          .onUpdate("CASCASE")
+          .onDelete("CASCADE");
         tbl.foreign("recipe_id").references("recipes.id");
         // FOREIGN KEY REFERENCE TO THE INGREDIENTS TABLE - INGREDIENT ID
         tbl
           .integer("ingredient_id")
           .unsigned()
           .notNullable()
-
+          .onUpdate("CASCASE")
+          .onDelete("CASCADE");
         tbl.foreign("ingredient_id").references("ingredients.id");
 
         tbl
