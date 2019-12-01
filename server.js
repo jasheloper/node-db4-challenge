@@ -4,11 +4,11 @@ const server = express();
 
 server.use(express.json());
 
-server.get("/", (req, res) => {
+server.get("/api/recipes", (req, res) => {
    res.send(` 
    
    <h1>Hello.</h1>
-   <p>This is a template.</p>
+   <p>Recipe Book API - By Jashele Tillman</p>
    
    `);
 });
